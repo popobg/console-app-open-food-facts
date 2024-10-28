@@ -13,8 +13,8 @@ public class Allergene {
             return false;
         }
 
-        Allergene autreAllergene = (Allergene)obj;
-        return this.libelle.equals(autreAllergene.getLibelle());
+        Allergene autre = (Allergene)obj;
+        return this.libelle.equals(autre.getLibelle());
     }
 
     public String getLibelle() {

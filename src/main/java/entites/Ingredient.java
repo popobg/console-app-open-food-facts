@@ -7,6 +7,17 @@ public class Ingredient {
         this.libelle = libelle;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Ingredient)) {
+            return false;
+        }
+
+        Ingredient autre = (Ingredient)obj;
+
+        return this.libelle.equals(autre.getLibelle());
+    }
+
     public String getLibelle() {
         return libelle;
     }

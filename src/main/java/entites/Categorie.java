@@ -10,14 +10,6 @@ public class Categorie implements Comparable<Categorie> {
         this.libelle = libelle;
     }
 
-    public String getLibelle() {
-        return libelle;
-    }
-
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
     @Override
     public int compareTo(Categorie autreCategorie) {
         Collator collator = Collator.getInstance(Locale.FRANCE);
@@ -30,8 +22,16 @@ public class Categorie implements Comparable<Categorie> {
             return false;
         }
 
-        Categorie autreCategorie = (Categorie)obj;
+        Categorie autre = (Categorie)obj;
 
-        return this.libelle.equals(autreCategorie.getLibelle());
+        return this.libelle.equals(autre.getLibelle());
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 }

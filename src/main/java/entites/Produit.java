@@ -26,6 +26,39 @@ public class Produit {
         this.presenceHuilePalme = presenceHuilePalme;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Produit)) {
+            return false;
+        }
+
+        Produit autre = (Produit)obj;
+
+        if (!(this.categorie.equals(autre.getCategorie())
+                && this.marque.equals(autre.getMarque())
+                && this.nom.equals(autre.getNom())
+                && this.scoreNutritionnel.equals(autre.getScoreNutritionnel())
+                && this.presenceHuilePalme.equals(autre.getPresenceHuilePalme())
+                && this.valeursEnergetiques100g.equals(autre.getValeursEnergetiques100g()))) {
+            return false;
+        }
+
+        // Vérifie que les listes sont identiques, quel que soit leur ordre
+        if (!(this.additifs.containsAll(autre.getAdditifs()) && autre.getAdditifs().containsAll(this.additifs))) {
+            return false;
+        }
+
+        if (!(this.allergenes.containsAll(autre.getAllergenes()) && autre.getAllergenes().containsAll(this.allergenes))) {
+            return false;
+        }
+
+        if (!(this.ingredients.containsAll(autre.getIngredients()) && autre.getIngredients().containsAll(this.ingredients))) {
+            return false;
+        }
+
+        return true;
+    }
+
     public List<Additif> getAdditifs() {
         return additifs;
     }
@@ -50,7 +83,7 @@ public class Produit {
         return nom;
     }
 
-    public Boolean isPresenceHuilePalme() {
+    public Boolean getPresenceHuilePalme() {
         return presenceHuilePalme;
     }
 

@@ -23,7 +23,14 @@ public class FileParser {
      */
     public static List<String> parseFile(Path path) throws IOException  {
         List<String> listelignes = new ArrayList<>();
-        listelignes = Files.readAllLines(path);
+
+        try {
+            listelignes = Files.readAllLines(path);
+        }
+        catch (IOException e) {
+            throw new IOException("Contenu du fichier irrécupérable.");
+        }
+
         return listelignes;
     }
 }

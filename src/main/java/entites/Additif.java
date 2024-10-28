@@ -13,8 +13,8 @@ public class Additif {
             return false;
         }
 
-        Additif autreAdditif = (Additif)obj;
-        return this.libelle.equals(autreAdditif.getLibelle());
+        Additif autre = (Additif)obj;
+        return this.libelle.equals(autre.getLibelle());
     }
 
     public String getLibelle() {

@@ -45,7 +45,6 @@ public class DataParser {
      * Récupère les données d'une liste de chaînes de caractères obtenues
      * à partir d'un fichier répertoriant des produits alimentaires
      * et les répartit dans différents objets.
-     *
      * L'objet Produit créé à partir d'une ligne contient toutes ces données
      * organisées en un ensemble d'attributs.
      * Chaque produit est ensuite ajouté à une liste de produits contenue

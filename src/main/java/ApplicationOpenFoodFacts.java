@@ -14,11 +14,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationOpenFoodFacts {
+    /**
+     * Ce programme s'exécute en ligne de commande et prend en argument
+     * le chemin vers le fichier Open Food Facts.
+     * Pour lancer le programme dans le terminal, taper "java chemin-vers-ApplicationOpenFoodFacts.java chemin-vers-fichier".
+     * @param args chemin vers le fichier Open Food Facts au format CSV.
+     */
     public static void main(String[] args) {
         // PARSE LE FICHIER POUR RECUPERER LES LIGNES DE DONNEES
-        // Construction du chemin vers le fichier de données
-        String repertoireActuel = Paths.get(".").toAbsolutePath().toString();
-        String stringPath = repertoireActuel.substring(0, repertoireActuel.length() - 1) + "src\\main\\java\\fichier\\open-food-facts.csv";
+        if (args.length != 1) {
+            System.out.println("Le chemin vers le fichier Open Food Facts au format CSV doit être donné en argument CLI à l'exécution du programme.");
+            System.exit(0);
+        }
+
+        String stringPath = args[0];
         Path path = Paths.get(stringPath);
 
         List<String> lignesOpenFoodFacts = new ArrayList<>();
@@ -26,6 +35,7 @@ public class ApplicationOpenFoodFacts {
             lignesOpenFoodFacts = FileParser.parseFile(path);
         }
         catch (IOException e) {
+            System.out.println(e.getMessage());
             System.out.println("Le contenu du fichier n'a pas pu être récupéré. Vérifiez que le fichier existe et que le chemin donné est correct.");
         }
 

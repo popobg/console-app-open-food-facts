@@ -30,8 +30,8 @@ public class Marque implements Comparable<Marque> {
             return false;
         }
 
-        Marque autreMarque = (Marque)obj;
+        Marque autre = (Marque)obj;
 
-        return this.nom.equals(autreMarque.getNom());
+        return this.nom.equals(autre.getNom());
     }
 }
